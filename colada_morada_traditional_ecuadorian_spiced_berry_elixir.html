@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colada Morada - Traditional Ecuadorian Spiced Berry Elixir</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepPurple: '#2A0826',
+                        mortinoPurple: '#4A123D',
+                        blackberryViolet: '#6B1D52',
+                        cinnamonSpice: '#9E2A2B',
+                        goldenPan: '#D97706',
+                        warmCream: '#FAF7F2',
+                        cardCream: '#F3EDE2',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Fade-on-Scroll utilities */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        .reveal-element.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glassmorphism accents */
+        .glass-panel {
+            background: rgba(42, 8, 38, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(250, 247, 242, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(107, 29, 82, 0.15);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2A0826;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6B1D52;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9E2A2B;
+        }
+    </style>
+</head>
+<body class="bg-warmCream text-gray-800 font-sans antialiased selection:bg-blackberryViolet selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-panel text-warmCream px-6 py-4 shadow-xl">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3 group">
+                <span class="w-8 h-8 rounded-full bg-gradient-to-tr from-mortinoPurple to-cinnamonSpice flex items-center justify-center text-white text-sm shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-wine-glass"></i>
+                </span>
+                <span class="font-serif font-bold text-xl tracking-wider text-warmCream group-hover:text-pink-300 transition-colors">Colada Morada</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#history" class="hover:text-pink-300 transition-colors">History & Heritage</a>
+                <a href="#ingredients" class="hover:text-pink-300 transition-colors">Key Ingredients</a>
+                <a href="#recipe" class="hover:text-pink-300 transition-colors">Preparation</a>
+                <a href="#guaguas" class="hover:text-pink-300 transition-colors">Guaguas de Pan</a>
+                <a href="#calculator" class="px-3 py-1 bg-cinnamonSpice rounded-full hover:bg-red-700 transition-all shadow-md">Calculator</a>
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden text-warmCream focus:outline-none" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-blackberryViolet/30 pt-4 flex flex-col space-y-3 font-medium">
+            <a href="#history" class="hover:text-pink-300">History & Heritage</a>
+            <a href="#ingredients" class="hover:text-pink-300">Key Ingredients</a>
+            <a href="#recipe" class="hover:text-pink-300">Preparation</a>
+            <a href="#guaguas" class="hover:text-pink-300">Guaguas de Pan</a>
+            <a href="#calculator" class="text-pink-300 font-bold">Calculator</a>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="relative min-h-screen flex items-center justify-center text-center overflow-hidden pt-20 px-4 bg-deepPurple">
+        <!-- Background Overlay Gradient & Decorative Circles -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blackberryViolet/60 via-mortinoPurple/80 to-deepPurple z-0"></div>
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-cinnamonSpice/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blackberryViolet/30 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 reveal-element">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blackberryViolet/50 border border-pink-500/30 text-pink-200 text-xs md:text-sm font-semibold uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-mortar-pestle text-cinnamonSpice"></i>
+                <span>Ecuadorian Ancestral Tradition</span>
+            </div>
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-extrabold text-warmCream tracking-tight leading-none mb-6">
+                Colada Morada
+            </h1>
+            <p class="text-lg md:text-2xl text-pink-100 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                A thick, aromatic, and deeply spiced purple corn potion steeped in centuries of Andean ancestral memory and sacred rituals.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#history" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-cinnamonSpice to-blackberryViolet text-warmCream font-semibold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all">
+                    Explore Tradition <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                </a>
+                <a href="#calculator" class="w-full sm:w-auto px-8 py-4 glass-panel text-warmCream border border-pink-400/30 font-semibold rounded-xl hover:bg-mortinoPurple/80 transition-all">
+                    <i class="fa-solid fa-calculator text-pink-300 mr-2"></i> Recipe Calculator
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <a href="#history" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-warmCream/70 hover:text-warmCream transition-colors animate-bounce">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </a>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="space-y-24 py-16">
+
+        <!-- SECTION 1: HISTORY & CULTURAL HERITAGE -->
+        <section id="history" class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Text Box -->
+                <div class="reveal-element">
+                    <span class="text-cinnamonSpice font-bold text-sm tracking-widest uppercase">Sacred Origins</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-deepPurple mt-2 mb-6">
+                        An Ancestral Ritual for the Day of the Dead
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        <strong>Colada Morada</strong> is a cornerstone of Ecuadorian culinary identity, prepared exclusively around November 2nd for <em>Día de los Difuntos</em> (Day of the Dead). Its history bridges pre-Columbian Indigenous rituals with Spanish colonial influences.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Originally, native Quitu-Kara and Inca civilizations brewed a dark corn beverage infused with wild Andean fruits and llama blood as an offering to honor their deceased ancestors during the rain season. Over centuries, European aromatic spices like cinnamon, cloves, and sugar transformed the brew into the rich, sweet berry elixir enjoyed today.
+                    </p>
+                    <div class="p-4 rounded-xl bg-mortinoPurple/10 border-l-4 border-mortinoPurple flex items-start space-x-3">
+                        <i class="fa-solid fa-quote-left text-mortinoPurple text-xl mt-1"></i>
+                        <p class="text-sm italic text-mortinoPurple font-medium">
+                            "Every sip of Colada Morada carries the harvest of the Andes and connects the living with the memory of those who came before."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual Card with Color Palette Showcase -->
+                <div class="reveal-element">
+                    <div class="bg-gradient-to-br from-deepPurple via-mortinoPurple to-blackberryViolet p-8 rounded-3xl shadow-2xl text-warmCream relative overflow-hidden">
+                        <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-cinnamonSpice/30 rounded-full blur-xl"></div>
+                        <h3 class="font-serif text-2xl font-bold mb-4 border-b border-pink-500/30 pb-3">
+                            The Elixir's Palette
+                        </h3>
+                        <p class="text-sm text-pink-100 mb-6">
+                            The signature purple hue signifies mourning, respect, and deep spiritual transition in Andean cosmovision.
+                        </p>
+                        
+                        <!-- Color Swatches -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <div class="p-3 bg-deepPurple rounded-xl border border-white/10 text-center">
+                                <div class="w-full h-8 rounded-lg bg-[#2A0826] mb-2 shadow-inner"></div>
+                                <span class="block text-xs font-mono">#2A0826</span>
+                                <span class="text-[10px] text-pink-300">Black Corn</span>
+                            </div>
+                            <div class="p-3 bg-deepPurple rounded-xl border border-white/10 text-center">
+                                <div class="w-full h-8 rounded-lg bg-[#4A123D] mb-2 shadow-inner"></div>
+                                <span class="block text-xs font-mono">#4A123D</span>
+                                <span class="text-[10px] text-pink-300">Mortiño</span>
+                            </div>
+                            <div class="p-3 bg-deepPurple rounded-xl border border-white/10 text-center">
+                                <div class="w-full h-8 rounded-lg bg-[#6B1D52] mb-2 shadow-inner"></div>
+                                <span class="block text-xs font-mono">#6B1D52</span>
+                                <span class="text-[10px] text-pink-300">Blackberry</span>
+                            </div>
+                            <div class="p-3 bg-deepPurple rounded-xl border border-white/10 text-center">
+                                <div class="w-full h-8 rounded-lg bg-[#9E2A2B] mb-2 shadow-inner"></div>
+                                <span class="block text-xs font-mono">#9E2A2B</span>
+                                <span class="text-[10px] text-pink-300">Cinnamon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: KEY INGREDIENTS -->
+        <section id="ingredients" class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-element">
+                <span class="text-cinnamonSpice font-bold text-sm tracking-widest uppercase">Nature's Bounty</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-deepPurple mt-2 mb-4">
+                    Key Traditional Ingredients
+                </h2>
+                <p class="text-gray-600">
+                    A complex symphony of over 25 ingredients simmered together to achieve its distinctive velvety texture and aromatic depth.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="reveal-element glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border border-mortinoPurple/10 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-xl bg-mortinoPurple/20 flex items-center justify-center text-mortinoPurple mb-4 text-2xl">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-deepPurple mb-2">Harina de Maíz Morado</h3>
+                    <p class="text-xs text-cinnamonSpice font-semibold mb-2">Purple / Black Corn Flour</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        The thickening base of the drink, giving it a rich texture, deep violet tint, and subtle earthy flavor.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal-element glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border border-mortinoPurple/10 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-xl bg-blackberryViolet/20 flex items-center justify-center text-blackberryViolet mb-4 text-2xl">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-deepPurple mb-2">Mortiño & Blackberries</h3>
+                    <p class="text-xs text-cinnamonSpice font-semibold mb-2">Andean Blueberries & Mora</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Wild high-altitude Andean berries (*mortiño*) paired with blackberries deliver essential tartness and vibrant color.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal-element glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border border-mortinoPurple/10 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-xl bg-cinnamonSpice/20 flex items-center justify-center text-cinnamonSpice mb-4 text-2xl">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-deepPurple mb-2">Sweet Spices</h3>
+                    <p class="text-xs text-cinnamonSpice font-semibold mb-2">Cinnamon, Cloves, Allspice</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Boiled into a fragrant infusion alongside *Ishpingo* (Andean cinnamon flower) and sweet pepper (*pimienta dulce*).
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="reveal-element glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition-all border border-mortinoPurple/10 hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-xl bg-goldenPan/20 flex items-center justify-center text-goldenPan mb-4 text-2xl">
+                        <i class="fa-solid fa-lemon"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-xl text-deepPurple mb-2">Tropical Fruits & Herbs</h3>
+                    <p class="text-xs text-cinnamonSpice font-semibold mb-2">Pineapple, Babaco, Orange Leaves</p>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Diced fruits add pleasant sweet chunks, while orange leaves, lemongrass, and verbena provide floral notes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: TRADITIONAL RECIPE & STEPS -->
+        <section id="recipe" class="max-w-5xl mx-auto px-6">
+            <div class="bg-deepPurple text-warmCream rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden reveal-element">
+                <div class="max-w-3xl mb-10">
+                    <span class="text-pink-400 font-bold text-sm tracking-widest uppercase">Culinary Process</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold mt-2">How to Prepare Authentic Colada Morada</h2>
+                    <p class="text-pink-100/80 mt-2 text-sm md:text-base">
+                        Preparing Colada Morada is a loving family affair. Takes roughly 2 to 3 hours of simmering and continuous stirring.
+                    </p>
+                </div>
+
+                <!-- Step by Step Timeline -->
+                <div class="space-y-8 relative before:absolute before:inset-0 before:left-5 before:md:left-8 before:w-0.5 before:bg-blackberryViolet">
+                    <!-- Step 1 -->
+                    <div class="relative flex items-start space-x-6">
+                        <div class="flex-shrink-0 w-10 h-10 md:w-16 md:h-16 rounded-full bg-cinnamonSpice flex items-center justify-center font-serif font-bold text-lg md:text-2xl shadow-lg z-10 border-4 border-deepPurple">
+                            1
+                        </div>
+                        <div class="bg-mortinoPurple/40 p-5 rounded-2xl border border-white/10 flex-1">
+                            <h3 class="font-serif text-lg md:text-xl font-bold text-pink-200">Steep the Aromatic Spice Infusion</h3>
+                            <p class="text-sm text-gray-300 mt-1">
+                                In a large pot, simmer water with cinnamon sticks, cloves, allspice, sweet pepper, *ishpingo*, orange leaves, and lemongrass for 30 minutes until intensely fragrant. Strain and save the tea.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex items-start space-x-6">
+                        <div class="flex-shrink-0 w-10 h-10 md:w-16 md:h-16 rounded-full bg-blackberryViolet flex items-center justify-center font-serif font-bold text-lg md:text-2xl shadow-lg z-10 border-4 border-deepPurple">
+                            2
+                        </div>
+                        <div class="bg-mortinoPurple/40 p-5 rounded-2xl border border-white/10 flex-1">
+                            <h3 class="font-serif text-lg md:text-xl font-bold text-pink-200">Prepare & Blend Fruit Purée</h3>
+                            <p class="text-sm text-gray-300 mt-1">
+                                Cook the mortiño berries, blackberries, and naranjilla pulp with panela (unrefined cane sugar). Blend until smooth and strain out all seeds to create a concentrated berry base.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex items-start space-x-6">
+                        <div class="flex-shrink-0 w-10 h-10 md:w-16 md:h-16 rounded-full bg-mortinoPurple flex items-center justify-center font-serif font-bold text-lg md:text-2xl shadow-lg z-10 border-4 border-deepPurple">
+                            3
+                        </div>
+                        <div class="bg-mortinoPurple/40 p-5 rounded-2xl border border-white/10 flex-1">
+                            <h3 class="font-serif text-lg md:text-xl font-bold text-pink-200">Dissolve Black Corn Flour & Combine</h3>
+                            <p class="text-sm text-gray-300 mt-1">
+                                Dissolve black corn flour in cooled spiced tea. Whisk into the simmering pot along with the berry purée, stirring constantly over medium heat to prevent clumping until thickened.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex items-start space-x-6">
+                        <div class="flex-shrink-0 w-10 h-10 md:w-16 md:h-16 rounded-full bg-goldenPan flex items-center justify-center font-serif font-bold text-lg md:text-2xl shadow-lg z-10 border-4 border-deepPurple">
+                            4
+                        </div>
+                        <div class="bg-mortinoPurple/40 p-5 rounded-2xl border border-white/10 flex-1">
+                            <h3 class="font-serif text-lg md:text-xl font-bold text-pink-200">Add Diced Fruits & Serve Warm</h3>
+                            <p class="text-sm text-gray-300 mt-1">
+                                Gently fold in finely diced pineapple, babaco, and strawberries. Simmer for another 10-15 minutes until fruit tenderizes. Serve warm or chilled alongside fresh *Guaguas de Pan*.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: GUAGUAS DE PAN PAIRING -->
+        <section id="guaguas" class="max-w-6xl mx-auto px-6">
+            <div class="bg-cardCream rounded-3xl p-8 md:p-12 shadow-xl border border-goldenPan/20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center reveal-element">
+                <div>
+                    <span class="text-goldenPan font-bold text-sm tracking-widest uppercase">The Inseparable Companion</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-deepPurple mt-2 mb-4">
+                        Guaguas de Pan
+                    </h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Colada Morada is never served alone. It is traditionally accompanied by <strong>Guaguas de Pan</strong> ("Bread Babies" in Kichwa)—sweet, brioche-like decorative bread figures stuffed with chocolate, guava paste, or dulce de leche.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Historically, indigenous ancestors carved mummies or wooden figures to represent deceased loved ones. Today, these sweet breads decorated with colorful icing symbolize life, family renewal, and remembrance.
+                    </p>
+                    <div class="flex items-center space-x-4 text-sm font-semibold text-deepPurple">
+                        <span class="px-3 py-1 rounded-full bg-goldenPan/20 text-goldenPan border border-goldenPan/30">
+                            <i class="fa-solid fa-bread-slice mr-1"></i> Sweet Brioche
+                        </span>
+                        <span class="px-3 py-1 rounded-full bg-mortinoPurple/20 text-mortinoPurple border border-mortinoPurple/30">
+                            <i class="fa-solid fa-cookie-bite mr-1"></i> Guava / Chocolate Filled
+                        </span>
+                    </div>
+                </div>
+                <!-- Visual Box for Guaguas -->
+                <div class="flex justify-center">
+                    <div class="w-full max-w-md bg-gradient-to-tr from-goldenPan to-yellow-600 p-8 rounded-2xl shadow-xl text-white text-center relative overflow-hidden">
+                        <div class="text-7xl mb-4 text-warmCream opacity-90">
+                            <i class="fa-solid fa-child"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold mb-2">Symbol of Life & Remembrance</h3>
+                        <p class="text-xs text-yellow-100 leading-relaxed">
+                            Decorated intricately with royal icing in vibrant red, green, and blue patterns. Dunking a warm Guagua de Pan into cold or warm Colada Morada is the ultimate Ecuadorian culinary experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: RECIPE CALCULATOR -->
+        <section id="calculator" class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-10 reveal-element">
+                <span class="text-cinnamonSpice font-bold text-sm tracking-widest uppercase">Interactive Tool</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-deepPurple mt-2 mb-4">
+                    Batch & Portion Calculator
+                </h2>
+                <p class="text-gray-600">
+                    Adjust the desired number of servings to dynamically calculate ingredient quantities for your traditional homemade Colada Morada.
+                </p>
+            </div>
+
+            <!-- Calculator Window -->
+            <div class="bg-deepPurple rounded-2xl shadow-2xl p-6 md:p-8 text-warmCream border border-blackberryViolet/40 max-w-4xl mx-auto reveal-element">
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <label for="servings-slider" class="font-serif text-lg font-bold text-pink-200">Desired Servings</label>
+                        <span id="servings-val" class="px-4 py-1.5 bg-cinnamonSpice rounded-xl text-white font-bold text-lg shadow-md">6</span>
+                    </div>
+                    <input type="range" id="servings-slider" min="1" max="24" value="6" class="w-full h-3 bg-mortinoPurple rounded-lg appearance-none cursor-pointer accent-pink-500">
+                    <div class="flex justify-between text-xs text-pink-200/60 mt-2">
+                        <span>1 serving</span>
+                        <span>12 servings</span>
+                        <span>24 servings</span>
+                    </div>
+                </div>
+
+                <!-- Calculated Output Grid -->
+                <div id="calculator-output" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Dynamic Items injected via JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-deepPurple text-warmCream border-t border-blackberryViolet/40 py-12 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+            <div class="flex items-center space-x-3">
+                <span class="w-8 h-8 rounded-full bg-mortinoPurple flex items-center justify-center text-warmCream">
+                    <i class="fa-solid fa-wine-glass text-xs"></i>
+                </span>
+                <span class="font-serif font-bold text-lg">Colada Morada</span>
+            </div>
+            <p class="text-xs text-pink-200/60 text-center">
+                Crafted in HTML & Tailwind CSS • Dedicated to Ecuadorian Gastronomy.
+            </p>
+            <div class="flex space-x-4 text-gray-400 text-sm">
+                <a href="#history" class="hover:text-pink-300 transition-colors">History</a>
+                <a href="#ingredients" class="hover:text-pink-300 transition-colors">Ingredients</a>
+                <a href="#calculator" class="hover:text-pink-300 transition-colors">Calculator</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 2. Fade-on-Scroll Observer (IntersectionObserver)
+        const revealElements = document.querySelectorAll('.reveal-element');
+
+        const observerOptions = {
+            root: null,
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 3. Ingredient Portion Calculator Logic
+        const baseRecipe = {
+            servings: 4,
+            ingredients: [
+                { name: "Black Corn Flour", amount: 120, unit: "g", icon: "fa-seedling" },
+                { name: "Mortiño (Andean Blueberry)", amount: 200, unit: "g", icon: "fa-apple-whole" },
+                { name: "Blackberries", amount: 200, unit: "g", icon: "fa-wine-glass" },
+                { name: "Diced Pineapple", amount: 150, unit: "g", icon: "fa-lemon" },
+                { name: "Panela Sugar", amount: 180, unit: "g", icon: "fa-cubes" },
+                { name: "Cinnamon Sticks", amount: 2, unit: "pcs", icon: "fa-pepper-hot" }
+            ]
+        };
+
+        const slider = document.getElementById('servings-slider');
+        const servingsVal = document.getElementById('servings-val');
+        const calcOutput = document.getElementById('calculator-output');
+
+        function updateCalculator() {
+            const servings = parseInt(slider.value, 10);
+            servingsVal.textContent = servings;
+            const ratio = servings / baseRecipe.servings;
+
+            calcOutput.innerHTML = baseRecipe.ingredients.map(item => {
+                const scaledAmount = Math.round(item.amount * ratio * 10) / 10;
+                return `
+                    <div class="bg-mortinoPurple/40 p-4 rounded-xl border border-white/10 flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid ${item.icon} text-pink-300 text-lg"></i>
+                            <span class="text-sm font-medium text-pink-100">${item.name}</span>
+                        </div>
+                        <span class="font-mono text-sm font-bold text-amber-300">${scaledAmount} ${item.unit}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        slider.addEventListener('input', updateCalculator);
+        window.addEventListener('load', updateCalculator);
+    </script>
+</body>
+</html>
